@@ -1,0 +1,672 @@
+/* AllServicesForm.module.css - White Theme */
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e8f0fe 50%, #f5f3ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  backdrop-filter: blur(4px);
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 40px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.headerTitle {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.gradient {
+  background: linear-gradient(135deg, #2563eb, #7c3aed, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.headerDesc {
+  font-size: 16px;
+  color: #64748b;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* Main Card */
+.card {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Left Panel - White Theme */
+.left {
+  background: #ffffff;
+  padding: 36px 28px;
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e2e8f0;
+}
+
+.leftHeader h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.leftHeader p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 28px;
+}
+
+/* Benefits Grid */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.benefitCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: #f8fafc;
+  border-radius: 16px;
+  transition: all 0.3s;
+  border: 1px solid #e2e8f0;
+}
+
+.benefitCard:hover {
+  background: #eff6ff;
+  transform: translateX(4px);
+  border-color: #3b82f6;
+}
+
+.benefitIcon {
+  width: 42px;
+  height: 42px;
+  background: #eff6ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+}
+
+.benefitContent {
+  flex: 1;
+}
+
+.benefitContent strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.benefitContent span {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Left Footer */
+.leftFooter {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 12px;
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+.contactInfo div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hoursInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #64748b;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.hoursInfo div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Right Panel */
+.right {
+  background: #ffffff;
+  padding: 32px 36px;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.right::-webkit-scrollbar {
+  width: 6px;
+}
+
+.right::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.right::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+/* Form Styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Group */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formGroup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.formGroup label span {
+  color: #ef4444;
+}
+
+/* Input Wrapper */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.inputWrapper input,
+.inputWrapper select,
+.inputWrapper textarea {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  font-size: 14px;
+  color: #0f172a;
+  background: #ffffff;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.inputWrapper textarea {
+  resize: vertical;
+  padding-top: 12px;
+}
+
+.inputWrapper input:focus,
+.inputWrapper select:focus,
+.inputWrapper textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Form Row */
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Success/Error Messages */
+.successMsg, .errorMsg {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.successMsg {
+  background: #ecfdf5;
+  border: 1px solid #bbf7d0;
+}
+
+.successMsg svg {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.successMsg strong {
+  color: #065f46;
+  font-size: 14px;
+}
+
+.successMsg p {
+  color: #047857;
+  font-size: 12px;
+  margin: 2px 0 0;
+}
+
+.errorMsg {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.errorMsg svg {
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+.errorMsg strong {
+  color: #991b1b;
+  font-size: 14px;
+}
+
+.errorMsg p {
+  color: #dc2626;
+  font-size: 12px;
+  margin: 2px 0 0;
+}
+
+/* Submit Button */
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(37, 99, 235, 0.4);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Trust Badges */
+.trustBadges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 8px;
+}
+
+.trustBadges span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.trustBadges svg {
+  color: #10b981;
+}
+
+/* Dropdown Styles */
+.dropdownWrap {
+  position: relative;
+  width: 100%;
+}
+
+.dropdownTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.dropdownTrigger:hover,
+.dropdownOpen {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.triggerSelected {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.triggerIcon {
+  color: #3b82f6;
+  display: flex;
+  align-items: center;
+}
+
+.triggerPlaceholder {
+  color: #94a3b8;
+}
+
+.triggerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+}
+
+.clearBtn {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.clearBtn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.chevron {
+  transition: transform 0.2s;
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Panel */
+.dropdownPanel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Category Bar */
+.catBar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  background: #fafcff;
+}
+
+.catBtn {
+  padding: 6px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.catBtn:hover {
+  border-color: #3b82f6;
+  color: #2563eb;
+}
+
+.catActive {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  color: #fff !important;
+}
+
+/* Service Grid */
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 14px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.serviceGrid::-webkit-scrollbar {
+  width: 4px;
+}
+
+.serviceGrid::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+
+.serviceOption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #fff;
+}
+
+.serviceOption:hover {
+  border-color: #93c5fd;
+  background: #eff6ff;
+  transform: translateX(2px);
+}
+
+.serviceSelected {
+  border-color: #3b82f6 !important;
+  background: #eff6ff !important;
+}
+
+.svcIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.svcName {
+  font-size: 12px;
+  font-weight: 500;
+  color: #1e293b;
+  flex: 1;
+}
+
+.svcCheck {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+  
+  .left {
+    padding: 28px;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .right {
+    max-height: 70vh;
+  }
+  
+  .hoursInfo {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerTitle {
+    font-size: 32px;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .serviceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .right {
+    padding: 24px;
+  }
+  
+  .contactInfo {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .serviceGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .trustBadges {
+    gap: 12px;
+  }
+  
+  .headerTitle {
+    font-size: 28px;
+  }
+  
+  .page {
+    padding: 20px 16px;
+  }
+}

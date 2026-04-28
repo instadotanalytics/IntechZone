@@ -1,0 +1,834 @@
+/* Pages/Career.module.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==================== Section Header ==================== */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.sectionBadge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #eff6ff;
+  color: #3b82f6;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 50px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.sectionHeader h2 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.gradient {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sectionHeader p {
+  font-size: 18px;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==================== Hero Section ==================== */
+.heroSection {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc, #ffffff);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 8px 18px;
+  background: #fef3c7;
+  color: #d97706;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.heroLeft h1 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.heroDesc {
+  font-size: 18px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.statIcon {
+  color: #3b82f6;
+}
+
+.statNumber {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.primaryBtn, .secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.primaryBtn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+}
+
+.primaryBtn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(59,130,246,0.3);
+}
+
+.secondaryBtn {
+  background: #ffffff;
+  color: #3b82f6;
+  border: 1.5px solid #e2e8f0;
+}
+
+.secondaryBtn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* Hero Right - Testimonial */
+.heroRight {
+  position: relative;
+}
+
+.testimonialCard {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 20px 40px -12px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.quoteIcon {
+  color: #3b82f6;
+  opacity: 0.3;
+  margin-bottom: 20px;
+}
+
+.testimonialText {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #1e293b;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.authorAvatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.testimonialAuthor h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.testimonialAuthor span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.testimonialDots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #3b82f6;
+}
+
+/* ==================== Why Join Us Section ==================== */
+.whyJoinSection {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.reasonsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.reasonCard {
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.reasonCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+  border-color: #cbd5e1;
+}
+
+.reasonIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.reasonCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.reasonCard p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* ==================== Join Our Team Section ==================== */
+.joinSection {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.joinGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.joinCard {
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: block;
+}
+
+.joinCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+  border-color: #cbd5e1;
+}
+
+.joinIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.joinCard h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.joinCard p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.joinFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.openings {
+  font-size: 13px;
+  font-weight: 600;
+  color: #10b981;
+}
+
+.joinFooter svg {
+  color: #94a3b8;
+  transition: transform 0.2s;
+}
+
+.joinCard:hover .joinFooter svg {
+  color: #3b82f6;
+  transform: translateX(4px);
+}
+
+/* ==================== Learning Path Section ==================== */
+.learningSection {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.pathGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.pathCard {
+  background: #f8fafc;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.pathCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+}
+
+.pathHeader {
+  padding: 24px;
+  text-align: center;
+}
+
+.pathHeader h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.pathHeader span {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.pathBody {
+  padding: 24px;
+  background: #ffffff;
+}
+
+.pathItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.pathItem:last-child {
+  border-bottom: none;
+}
+
+.pathItem span {
+  font-size: 14px;
+  color: #1e293b;
+}
+
+.learnGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.learnCard {
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: block;
+}
+
+.learnCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+}
+
+.learnIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.learnCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.learnCard p {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.duration {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b5cf6;
+}
+
+/* ==================== Life at Intech Section ==================== */
+.lifeSection {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.benefitCard {
+  padding: 32px 24px;
+  background: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s;
+}
+
+.benefitCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+}
+
+.benefitIcon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  background: #eff6ff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+}
+
+.benefitCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.benefitCard p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.lifeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.lifeCard {
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: block;
+}
+
+.lifeCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+}
+
+.lifeIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.lifeCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.lifeCard p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* ==================== Hiring Process Section ==================== */
+.processSection {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.processGrid {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.processCard {
+  flex: 1;
+  text-align: center;
+  padding: 32px 20px;
+  background: #f8fafc;
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.processCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+}
+
+.processNumber {
+  width: 40px;
+  height: 40px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  margin: 0 auto 16px;
+}
+
+.processIcon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+}
+
+.processCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.processCard p {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* ==================== FAQ Section ==================== */
+.faqSection {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.faqGrid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqCard {
+  background: #ffffff;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.faqQuestion {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  text-align: left;
+}
+
+.faqIcon {
+  transition: transform 0.3s;
+  color: #94a3b8;
+}
+
+.faqIcon.rotate {
+  transform: rotate(90deg);
+}
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 24px;
+}
+
+.faqAnswer.open {
+  max-height: 200px;
+  padding: 0 24px 20px 24px;
+}
+
+.faqAnswer p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ==================== CTA Section ==================== */
+.ctaSection {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaContent h2 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.ctaContent p {
+  font-size: 18px;
+  color: #94a3b8;
+  margin-bottom: 32px;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.ctaPrimary, .ctaSecondary {
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ctaPrimary {
+  background: #3b82f6;
+  color: white;
+  border: none;
+}
+
+.ctaPrimary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid #475569;
+}
+
+.ctaSecondary:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+/* ==================== Responsive ==================== */
+@media (max-width: 1024px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+  }
+  .heroLeft h1 {
+    font-size: 40px;
+  }
+  .joinGrid, .learnGrid, .lifeGrid, .reasonsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .processGrid {
+    flex-direction: column;
+  }
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .joinGrid, .learnGrid, .lifeGrid, .reasonsGrid, .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+  .sectionHeader h2 {
+    font-size: 32px;
+  }
+  .heroButtons {
+    flex-direction: column;
+  }
+  .heroLeft h1 {
+    font-size: 32px;
+  }
+  .ctaContent h2 {
+    font-size: 28px;
+  }
+  .pathGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Add this to Career.module.css in the testimonial section */
+
+.quoteIcon {
+  font-size: 60px;
+  font-weight: 800;
+  color: #3b82f6;
+  opacity: 0.2;
+  margin-bottom: 20px;
+  line-height: 1;
+}

@@ -1,0 +1,909 @@
+/* AppDevelopment.module.css - Compact Mobile Design */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+
+.page {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1a202c;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Section - Compact */
+.hero {
+  padding: 60px 0 40px;
+  text-align: center;
+  position: relative;
+}
+
+.heroContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f5f3ff;
+  border: 1px solid #e9d5ff;
+  padding: 6px 16px;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.gradient {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroDesc {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.heroStat {
+  text-align: center;
+}
+
+.heroStatValue {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  color: #8b5cf6;
+}
+
+.heroStatLabel {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary, .btnSecondary {
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  color: white;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+}
+
+.btnSecondary {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+}
+
+.btnSecondary:hover {
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+}
+
+/* Section Headers - Compact */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.sectionBadge {
+  display: inline-block;
+  background: #f5f3ff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.sectionDesc {
+  font-size: 14px;
+  color: #64748b;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Services Section - Compact Grid */
+.services {
+  padding: 50px 0;
+  background: #f8fafc;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.serviceCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+.serviceCard:hover {
+  transform: translateY(-3px);
+  border-color: #8b5cf6;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.serviceIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.serviceTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.serviceDesc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.serviceDetails {
+  font-size: 11px;
+  color: #8b5cf6;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Platforms Section - Compact */
+.platforms {
+  padding: 50px 0;
+}
+
+.platformsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.platformCard {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.platformCard:hover {
+  transform: translateY(-3px);
+  border-color: #8b5cf6;
+}
+
+.platformIcon {
+  width: 55px;
+  height: 55px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.platformCard h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Process Section - Compact */
+.process {
+  padding: 50px 0;
+  background: #f8fafc;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.processCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.processStep {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #8b5cf6;
+  opacity: 0.5;
+}
+
+.processIcon {
+  width: 44px;
+  height: 44px;
+  background: #f5f3ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b5cf6;
+  margin-bottom: 14px;
+}
+
+.processTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.processDesc {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.processDuration {
+  font-size: 10px;
+  color: #8b5cf6;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #f5f3ff;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+/* Features Section - Compact */
+.features {
+  padding: 50px 0;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.featureCard {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.featureCard:hover {
+  transform: translateY(-3px);
+  border-color: #8b5cf6;
+}
+
+.featureIcon {
+  width: 48px;
+  height: 48px;
+  background: #f5f3ff;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b5cf6;
+  margin: 0 auto 12px;
+}
+
+.featureCard h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.featureCard p {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Why Choose Us Section - Compact */
+.whyUs {
+  padding: 50px 0;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+
+.whyUs .sectionBadge {
+  background: rgba(139, 92, 246, 0.2);
+  color: #a78bfa;
+}
+
+.whyUs .sectionTitle {
+  color: white;
+}
+
+.whyUsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.whyUsCard {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.whyUsCard:hover {
+  transform: translateY(-3px);
+  background: rgba(139, 92, 246, 0.1);
+  border-color: #8b5cf6;
+}
+
+.whyUsIcon {
+  width: 50px;
+  height: 50px;
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  color: #a78bfa;
+}
+
+.whyUsCard h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.whyUsCard p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+/* CTA Section - Compact */
+.cta {
+  padding: 50px 0;
+  background: #f8fafc;
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaContent h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.ctaContent p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaBtnPrimary, .ctaBtnSecondary {
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ctaBtnPrimary {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  color: white;
+}
+
+.ctaBtnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+}
+
+.ctaBtnSecondary {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+}
+
+.ctaBtnSecondary:hover {
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+}
+
+/* ============================================
+   MOBILE FIRST - EXTRA COMPACT FOR SMALL SCREENS
+   ============================================ */
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 14px;
+  }
+  
+  .hero {
+    padding: 40px 0 30px;
+  }
+  
+  .heroTitle {
+    font-size: 26px;
+  }
+  
+  .heroDesc {
+    font-size: 13px;
+  }
+  
+  .heroStats {
+    gap: 20px;
+  }
+  
+  .heroStatValue {
+    font-size: 18px;
+  }
+  
+  .heroStatLabel {
+    font-size: 10px;
+  }
+  
+  .heroButtons {
+    gap: 10px;
+  }
+  
+  .btnPrimary, .btnSecondary {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+  
+  .sectionTitle {
+    font-size: 22px;
+  }
+  
+  .sectionDesc {
+    font-size: 12px;
+  }
+  
+  .services, .platforms, .process, .features, .whyUs, .cta {
+    padding: 40px 0;
+  }
+  
+  .servicesGrid, .processGrid, .featuresGrid, .whyUsGrid {
+    gap: 12px;
+  }
+  
+  .serviceCard, .platformCard, .processCard, .featureCard, .whyUsCard {
+    padding: 16px;
+  }
+  
+  .serviceIcon, .featureIcon, .whyUsIcon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .serviceIcon svg, .featureIcon svg, .whyUsIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .serviceTitle, .processTitle, .platformCard h3, .featureCard h3, .whyUsCard h3 {
+    font-size: 14px;
+  }
+  
+  .serviceDesc, .processDesc, .featureCard p, .whyUsCard p {
+    font-size: 11px;
+  }
+  
+  .serviceDetails {
+    font-size: 10px;
+  }
+  
+  .platformIcon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .platformIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .ctaContent h2 {
+    font-size: 22px;
+  }
+  
+  .ctaContent p {
+    font-size: 13px;
+  }
+  
+  .ctaButtons {
+    gap: 10px;
+  }
+  
+  .ctaBtnPrimary, .ctaBtnSecondary {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}
+
+/* Medium Mobile (max-width: 375px) - Extra Compact */
+@media (max-width: 375px) {
+  .heroTitle {
+    font-size: 24px;
+  }
+  
+  .heroStats {
+    gap: 15px;
+  }
+  
+  .heroStatValue {
+    font-size: 16px;
+  }
+  
+  .sectionTitle {
+    font-size: 20px;
+  }
+  
+  .servicesGrid, .processGrid, .featuresGrid, .whyUsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .serviceCard, .platformCard, .processCard, .featureCard, .whyUsCard {
+    padding: 14px;
+  }
+}
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  .servicesGrid, .processGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .platformsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .whyUsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small Tablet (max-width: 600px) */
+@media (max-width: 600px) {
+  .servicesGrid, .processGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .platformsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .whyUsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .servicesGrid, .processGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .platformsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .featuresGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .whyUsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Add these new styles to your existing CSS file */
+
+/* Services Section with Images */
+.services {
+  padding: 50px 0;
+  background: #f8fafc;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.serviceCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  border-color: #8b5cf6;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.serviceImage {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+
+.serviceImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.serviceCard:hover .serviceImage img {
+  transform: scale(1.05);
+}
+
+.serviceOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(59, 130, 246, 0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  color: white;
+}
+
+.serviceCard:hover .serviceOverlay {
+  opacity: 1;
+}
+
+.serviceContent {
+  padding: 20px;
+}
+
+/* Projects Section */
+.projects {
+  padding: 50px 0;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.projectCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  border-color: #8b5cf6;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.projectImage {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.projectCard:hover .projectImage img {
+  transform: scale(1.05);
+}
+
+.projectOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  padding: 20px;
+}
+
+.projectCategory {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  background: rgba(139, 92, 246, 0.9);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.projectInfo {
+  padding: 16px;
+}
+
+.projectInfo h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.projectTech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.techTag {
+  font-size: 10px;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 8px;
+  border-radius: 16px;
+}
+
+.projectYear {
+  font-size: 11px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Responsive updates */
+@media (max-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .serviceImage {
+    height: 140px;
+  }
+  
+  .projectImage {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceImage {
+    height: 120px;
+  }
+  
+  .projectImage {
+    height: 160px;
+  }
+  
+  .projectInfo h3 {
+    font-size: 14px;
+  }
+}

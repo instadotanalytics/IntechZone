@@ -1,0 +1,890 @@
+/* Webdevelopment.module.css - Compact Mobile Design */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+
+.page {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1a202c;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Section - Compact */
+.hero {
+  padding: 60px 0 40px;
+  text-align: center;
+  position: relative;
+}
+
+.heroContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 6px 16px;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.gradient {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroDesc {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.heroStat {
+  text-align: center;
+}
+
+.heroStatValue {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  color: #3b82f6;
+}
+
+.heroStatLabel {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary, .btnSecondary {
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btnPrimary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btnPrimary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btnSecondary {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+}
+
+.btnSecondary:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+/* Section Headers - Compact */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.sectionBadge {
+  display: inline-block;
+  background: #eff6ff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.sectionDesc {
+  font-size: 14px;
+  color: #64748b;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Services Section - Compact */
+.services {
+  padding: 50px 0;
+  background: #f8fafc;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.serviceCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+.serviceCard:hover {
+  transform: translateY(-3px);
+  border-color: #3b82f6;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.serviceIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.serviceTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.serviceDesc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.serviceDetails {
+  font-size: 11px;
+  color: #3b82f6;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Process Section - Compact */
+.process {
+  padding: 50px 0;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.processCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.processCard:hover {
+  transform: translateY(-3px);
+  border-color: #3b82f6;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.processStep {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #3b82f6;
+  opacity: 0.5;
+}
+
+.processIcon {
+  width: 44px;
+  height: 44px;
+  background: #eff6ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  margin-bottom: 14px;
+}
+
+.processTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.processDesc {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.processMeta {
+  margin-bottom: 10px;
+}
+
+.processDuration {
+  font-size: 10px;
+  color: #3b82f6;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #eff6ff;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.processDeliverables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.deliverableTag {
+  font-size: 9px;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 6px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Portfolio Section - Compact */
+.portfolio {
+  padding: 50px 0;
+  background: #f8fafc;
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.portfolioCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.portfolioCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #3b82f6;
+}
+
+.portfolioIconWrap {
+  height: 100px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.portfolioIconWrap svg {
+  width: 32px;
+  height: 32px;
+}
+
+.portfolioInfo {
+  padding: 16px;
+}
+
+.portfolioInfo h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.portfolioCategory {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  color: #3b82f6;
+  background: #eff6ff;
+  padding: 2px 8px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.portfolioDesc {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.portfolioTech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.techTag {
+  font-size: 9px;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 6px;
+  border-radius: 16px;
+}
+
+.portfolioYear {
+  font-size: 10px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Technologies Section - Compact */
+.technologies {
+  padding: 50px 0;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.techCategory {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.techCategory h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.techBadge {
+  font-size: 10px;
+  font-weight: 500;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 3px 10px;
+  border-radius: 16px;
+  transition: all 0.2s;
+}
+
+.techBadge:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* Why Choose Us Section - Compact */
+.whyUs {
+  padding: 50px 0;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+
+.whyUs .sectionBadge {
+  background: rgba(255,255,255,0.1);
+  color: #3b82f6;
+}
+
+.whyUs .sectionTitle {
+  color: white;
+}
+
+.whyUs .sectionDesc {
+  color: rgba(255,255,255,0.7);
+}
+
+.whyUsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.whyUsCard {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+
+.whyUsCard:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.08);
+  border-color: #3b82f6;
+}
+
+.whyUsIcon {
+  width: 50px;
+  height: 50px;
+  background: rgba(59, 130, 246, 0.15);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  color: #3b82f6;
+}
+
+.whyUsCard h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.whyUsCard p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+}
+
+/* CTA Section - Compact */
+.cta {
+  padding: 50px 0;
+  background: #f8fafc;
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaContent h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.ctaContent p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaBtnPrimary, .ctaBtnSecondary {
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ctaBtnPrimary {
+  background: #3b82f6;
+  color: white;
+}
+
+.ctaBtnPrimary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.ctaBtnSecondary {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+}
+
+.ctaBtnSecondary:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+/* ============================================
+   MOBILE FIRST - EXTRA COMPACT
+   ============================================ */
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 14px;
+  }
+  
+  .hero {
+    padding: 40px 0 30px;
+  }
+  
+  .heroTitle {
+    font-size: 26px;
+  }
+  
+  .heroDesc {
+    font-size: 13px;
+  }
+  
+  .heroStats {
+    gap: 20px;
+  }
+  
+  .heroStatValue {
+    font-size: 18px;
+  }
+  
+  .heroStatLabel {
+    font-size: 10px;
+  }
+  
+  .heroButtons {
+    gap: 10px;
+  }
+  
+  .btnPrimary, .btnSecondary {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+  
+  .sectionTitle {
+    font-size: 22px;
+  }
+  
+  .sectionDesc {
+    font-size: 12px;
+  }
+  
+  .services, .process, .portfolio, .technologies, .whyUs, .cta {
+    padding: 40px 0;
+  }
+  
+  .servicesGrid, .processGrid, .portfolioGrid, .techGrid, .whyUsGrid {
+    gap: 12px;
+  }
+  
+  .serviceCard, .processCard, .portfolioCard, .techCategory, .whyUsCard {
+    padding: 16px;
+  }
+  
+  .serviceIcon, .processIcon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .serviceIcon svg, .processIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .serviceTitle, .processTitle, .portfolioInfo h3, .techCategory h3, .whyUsCard h3 {
+    font-size: 14px;
+  }
+  
+  .serviceDesc, .processDesc, .portfolioDesc, .whyUsCard p {
+    font-size: 11px;
+  }
+  
+  .portfolioIconWrap {
+    height: 80px;
+  }
+  
+  .portfolioIconWrap svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .ctaContent h2 {
+    font-size: 22px;
+  }
+  
+  .ctaContent p {
+    font-size: 13px;
+  }
+  
+  .ctaButtons {
+    gap: 10px;
+  }
+  
+  .ctaBtnPrimary, .ctaBtnSecondary {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}
+
+/* Extra Small Mobile (max-width: 375px) */
+@media (max-width: 375px) {
+  .heroTitle {
+    font-size: 24px;
+  }
+  
+  .heroStats {
+    gap: 15px;
+  }
+  
+  .heroStatValue {
+    font-size: 16px;
+  }
+  
+  .sectionTitle {
+    font-size: 20px;
+  }
+  
+  .servicesGrid, .processGrid, .portfolioGrid, .techGrid, .whyUsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .serviceCard, .processCard, .portfolioCard, .techCategory, .whyUsCard {
+    padding: 14px;
+  }
+}
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  .servicesGrid, .processGrid, .portfolioGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .whyUsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small Tablet (max-width: 600px) */
+@media (max-width: 600px) {
+  .servicesGrid, .processGrid, .portfolioGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .techGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .whyUsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .processGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .portfolioGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .techGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .whyUsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Add these styles for images */
+
+/* Services Section with Images */
+.serviceImage {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+
+.serviceImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.serviceCard:hover .serviceImage img {
+  transform: scale(1.05);
+}
+
+.serviceOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(139, 92, 246, 0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  color: white;
+}
+
+.serviceCard:hover .serviceOverlay {
+  opacity: 1;
+}
+
+.serviceContent {
+  padding: 20px;
+}
+
+/* Portfolio Section with Images */
+.portfolioImage {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.portfolioImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.portfolioCard:hover .portfolioImage img {
+  transform: scale(1.05);
+}
+
+.portfolioOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  padding: 20px;
+}
+
+.portfolioCategory {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  background: rgba(59, 130, 246, 0.9);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* Responsive image heights */
+@media (max-width: 768px) {
+  .serviceImage {
+    height: 140px;
+  }
+  
+  .portfolioImage {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .serviceImage {
+    height: 120px;
+  }
+  
+  .portfolioImage {
+    height: 160px;
+  }
+}

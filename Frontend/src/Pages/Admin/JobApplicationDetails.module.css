@@ -1,0 +1,591 @@
+/* ============================================
+   JOB APPLICATION DETAILS PAGE
+   ============================================ */
+
+:root {
+  --detail-bg: #f8fafc;
+  --detail-card-bg: #ffffff;
+  --detail-border: #e2e8f0;
+  --detail-text: #0f172a;
+  --detail-text-secondary: #475569;
+  --detail-text-muted: #94a3b8;
+  --detail-primary: #3b82f6;
+  --detail-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --detail-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --detail-transition: all 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  background: var(--detail-bg);
+  padding: 24px;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Loading */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  color: var(--detail-text-muted);
+}
+.loadingSpinner {
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Error */
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  color: var(--detail-text-muted);
+}
+.errorContainer h2 {
+  color: var(--detail-text);
+  margin: 16px 0 8px;
+}
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--detail-primary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+/* Top Bar */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.backLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--detail-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+.topActions {
+  display: flex;
+  gap: 10px;
+}
+.downloadBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: #10b981;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: #fff;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Content Grid */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+}
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Candidate Card */
+.candidateCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--detail-card-bg);
+  border: 1px solid var(--detail-border);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: var(--detail-shadow);
+}
+.candidateAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.candidateInfo {
+  flex: 1;
+}
+.candidateInfo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+.candidateMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+.candidateMeta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--detail-text-secondary);
+}
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Info Cards */
+.infoCard {
+  background: var(--detail-card-bg);
+  border: 1px solid var(--detail-border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--detail-shadow);
+}
+.infoCard h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--detail-border);
+}
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.infoItem label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--detail-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.infoItem span {
+  font-size: 14px;
+  color: var(--detail-text);
+  font-weight: 500;
+}
+.highlight {
+  color: #10b981;
+  font-weight: 700;
+}
+
+/* Skills */
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skillTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--detail-text-secondary);
+}
+
+/* Links */
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.linkItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #f8fafc;
+  border: 1px solid var(--detail-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--detail-primary);
+  font-size: 14px;
+}
+.linkItem span {
+  flex: 1;
+}
+
+/* Cover Letter */
+.coverLetter {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 16px;
+}
+.coverLetter p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: #e2e8f0;
+}
+.timelineItem {
+  position: relative;
+  padding-bottom: 20px;
+  display: flex;
+  gap: 12px;
+}
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+.timelineDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px currentColor;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.timelineLabel {
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  color: var(--detail-text);
+}
+.timelineDate {
+  font-size: 12px;
+  color: var(--detail-text-muted);
+}
+
+/* Sidebar */
+.sidebarCard {
+  background: var(--detail-card-bg);
+  border: 1px solid var(--detail-border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--detail-shadow);
+}
+.sidebarCard h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+/* Status Buttons */
+.statusButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.statusBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: #f8fafc;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--detail-transition);
+}
+.statusBtn:hover {
+  background: #f1f5f9;
+}
+.statusBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.updatingText {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--detail-text-muted);
+  margin-top: 8px;
+}
+
+/* Resume */
+.resumeInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: #f0fdf4;
+  border: 1px solid #d1fae5;
+  border-radius: 12px;
+}
+.resumeDetails {
+  flex: 1;
+}
+.resumeName {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  word-break: break-all;
+}
+.resumeMeta {
+  font-size: 11px;
+  color: var(--detail-text-muted);
+}
+.resumeDownloadBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: #10b981;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Notes */
+.notesTextarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--detail-border);
+  border-radius: 10px;
+  font-size: 13px;
+  resize: vertical;
+  min-height: 100px;
+  margin-bottom: 10px;
+}
+.saveNotesBtn {
+  width: 100%;
+  padding: 10px;
+  background: var(--detail-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.saveNotesBtn:disabled {
+  opacity: 0.7;
+}
+
+/* Quick Actions */
+.quickActions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid var(--detail-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--detail-text-secondary);
+  font-size: 13px;
+}
+.actionBtn:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+/* App Info */
+.appInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.appInfoItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 12px;
+}
+.appInfoItem:last-child {
+  border-bottom: none;
+}
+.appInfoItem code {
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  max-width: 440px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+.modal h2 {
+  margin: 16px 0 8px;
+}
+.modal p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+.modalActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.modalCancelBtn {
+  flex: 1;
+  padding: 12px;
+  background: #f1f5f9;
+  border: 1px solid var(--detail-border);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.modalDeleteBtn {
+  flex: 1;
+  padding: 12px;
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.noData {
+  font-size: 13px;
+  color: #94a3b8;
+  font-style: italic;
+}
+.noResume {
+  text-align: center;
+  padding: 20px;
+  color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    order: -1;
+  }
+}
+@media (max-width: 768px) {
+  .page {
+    padding: 16px;
+  }
+  .candidateCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .candidateMeta {
+    justify-content: center;
+  }
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+  .topBar {
+    flex-direction: column;
+  }
+}
