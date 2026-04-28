@@ -5,7 +5,7 @@ import {
   FiCode, FiHeadphones, FiTrendingUp, FiStar, FiAward,
   FiCpu, FiGlobe, FiLayers, FiMessageCircle
 } from 'react-icons/fi'
-import styles from './AffordablePricing.module.css'
+import styles from './Affordablepricing.module.css'
 import ContactHeroSection from '../../Pages/Contact/ContectHeroSection'
 import OurProcess from '../../Pages/Home/OurProcess'
 

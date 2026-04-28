@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import styles from './ContactPage.module.css'
+import styles from './Contactpage.module.css'
 import {
   FiPhone, FiMail, FiMapPin, FiClock, FiMessageCircle,
   FiCheckCircle, FiArrowRight, FiGlobe, FiLinkedin,
