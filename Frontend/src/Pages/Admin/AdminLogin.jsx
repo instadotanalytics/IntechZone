@@ -54,8 +54,8 @@ const AdminLogin = () => {
           <div className={styles.demoCredentials}>
             <FiAlertCircle size={14} />
             <span>Demo Credentials:</span>
-            <code>info@intechzone.in</code>
-            <code>IntechZone24</code>
+            <code>admin@gmail.com</code>
+            <code>admin@24516</code>
           </div>
         </div>
         <div className={styles.loginRight}>

@@ -21,7 +21,6 @@ function ParticleCanvas() {
         const ctx = canvas.getContext('2d')
         let animId
         let particles = []
-        let connections = []
 
         const resize = () => {
             canvas.width = canvas.offsetWidth
@@ -59,7 +58,6 @@ function ParticleCanvas() {
 
         const draw = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height)
-            // Connect nearby particles
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x
@@ -95,13 +93,14 @@ const QUICK_LINKS = [
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
     { label: 'Portfolio', path: '/portfolio' },
-    { label: 'Services', path: '/services' },
-    { label: 'Careers', path: '/careers' },
-    { label: 'Contact', path: '/contact' },
+    { label: 'Contact Us', path: '/contact' },
+    { label: 'Fast Delivery', path: '/fast-delivery' },
+    { label: '24/7 Support', path: '/247-support' },
 ]
 
 const TOP_SERVICES = SERVICES.flatMap(g => g.items).slice(0, 8)
-const TOP_CAREERS = CAREERS.flatMap(g => g.items).slice(0, 6)
+
+const TOP_CAREERS = CAREERS.flatMap(g => g.items)
 
 const SOCIALS = [
     { icon: FiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
@@ -128,8 +127,6 @@ export default function Footer() {
 
             {/* Canvas background */}
             <ParticleCanvas />
-
-         
 
             {/* ── Main Grid ── */}
             <div className={styles.main}>
@@ -224,8 +221,8 @@ export default function Footer() {
                             </li>
                         ))}
                         <li>
-                            <Link to="/careers/openings" className={`${styles.footerLink} ${styles.seeAll}`}>
-                                Current openings <FiArrowRight size={11} />
+                            <Link to="/careers" className={`${styles.footerLink} ${styles.seeAll}`}>
+                                View all careers <FiArrowRight size={11} />
                             </Link>
                         </li>
                     </ul>
@@ -254,7 +251,6 @@ export default function Footer() {
                     <span className={styles.dot} />
                     <Link to="/sitemap">Sitemap</Link>
                 </div>
-                
             </div>
 
         </footer>

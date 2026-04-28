@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import Home from './Pages/Home/Home'
 import MainContect from './Pages/Contact/MainContect'
 
+
 // Components
 import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
@@ -48,6 +49,7 @@ import FullTimeJob from './Components/Career/JoinOurTeam/FullTimeJob'
 import Internship from './Components/Career/JoinOurTeam/Internship'
 import Career from './Components/Career/Career'
 import PartTime from './Components/Career/JoinOurTeam/PartTime'
+import SearchResults from './Components/Header/SearchResults'
 
 
 // Scroll to top component
@@ -137,6 +139,9 @@ const App = () => {
         <Route path="/careers/full-time" element={<Layout><FullTimeJob /></Layout>} />
         <Route path="/careers/internships" element={<Layout><Internship/></Layout>} />
         <Route path="/careers/part-time" element={<Layout><PartTime/></Layout>} />
+
+
+        <Route path="/search" element={<Layout><SearchResults/></Layout>} />
 
        
       

@@ -1,3 +1,4 @@
+// Header.jsx
 import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import styles from './Header.module.css'
@@ -59,7 +60,6 @@ export const CAREERS = [
       { icon: FiActivity,  label: 'Part Time / Remote', desc: 'Flexible work on your own schedule',     detail: 'Global remote, async-first culture',      path: '/careers/part-time',   img: 'https://images.unsplash.com/photo-1521898284481-a5ec348cb555?w=600&h=380&fit=crop' },
     ]
   },
-
 ]
 
 const NAV_LINKS = [
@@ -69,6 +69,21 @@ const NAV_LINKS = [
   { label: 'Contact',   path: '/contact' },
 ]
 
+// Additional pages for autosuggest
+const PAGES = [
+  { label: 'Home', path: '/', desc: 'Main landing page', keywords: 'home main landing' },
+  { label: 'About Us', path: '/about', desc: 'Learn about our company', keywords: 'about company team history' },
+  { label: 'Portfolio', path: '/portfolio', desc: 'View our work', keywords: 'projects showcase gallery' },
+  { label: 'Contact Us', path: '/contact', desc: 'Get in touch', keywords: 'contact support help inquiry' },
+]
+
+// Combine all searchable data for autosuggest
+const ALL_SEARCHABLE = [
+  ...SERVICES.flatMap(g => g.items.map(item => ({ ...item, type: 'service' }))),
+  ...CAREERS.flatMap(g => g.items.map(item => ({ ...item, type: 'career' }))),
+  ...PAGES.map(item => ({ ...item, type: 'page' })),
+]
+
 /* ═══════════════════════════════════
    MEGA DROPDOWN COMPONENT
 ═══════════════════════════════════ */
@@ -76,15 +91,12 @@ const MegaDropdown = ({ groups, footerText, footerPath, onClose }) => {
   const allItems = groups.flatMap(g => g.items)
   const [hovered, setHovered] = useState(allItems[0])
 
-  // Find the color of the currently hovered item's group
   const hoveredGroup = groups.find(g => g.items.some(i => i.label === hovered?.label))
   const accentColor = hoveredGroup?.color ?? '#1a55d4'
 
   return (
     <div className={styles.mega} onMouseLeave={onClose}>
       <div className={styles.megaInner}>
-
-        {/* ── Left: item list ── */}
         <div className={styles.megaLeft}>
           {groups.map((group) => (
             <div key={group.category} className={styles.megaGroup}>
@@ -128,16 +140,11 @@ const MegaDropdown = ({ groups, footerText, footerPath, onClose }) => {
           ))}
         </div>
 
-        {/* ── Right: image preview ── */}
         <div className={styles.megaRight}>
           {hovered && (
             <div className={styles.megaPreview} key={hovered.label}>
               <div className={styles.megaPreviewImgWrap}>
-                <img
-                  src={hovered.img}
-                  alt={hovered.label}
-                  className={styles.megaPreviewImg}
-                />
+                <img src={hovered.img} alt={hovered.label} className={styles.megaPreviewImg} />
                 <div className={styles.megaPreviewImgOverlay} />
               </div>
               <div className={styles.megaPreviewBody}>
@@ -162,10 +169,8 @@ const MegaDropdown = ({ groups, footerText, footerPath, onClose }) => {
             </div>
           )}
         </div>
-
       </div>
 
-      {/* ── Footer ── */}
       <div className={styles.megaFooter}>
         <span className={styles.megaFooterText}>
           <FiZap size={12} /> {footerText}
@@ -183,15 +188,18 @@ const MegaDropdown = ({ groups, footerText, footerPath, onClose }) => {
 ═══════════════════════════════════ */
 export default function Header() {
   const [menuOpen, setMenuOpen]               = useState(false)
-  const [dropOpen, setDropOpen]               = useState(null)      // 'services' | 'careers' | null
+  const [dropOpen, setDropOpen]               = useState(null)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
   const [mobileCareersOpen, setMobileCareersOpen]   = useState(false)
   const [scrolled, setScrolled]               = useState(false)
   const [searchOpen, setSearchOpen]           = useState(false)
   const [searchQuery, setSearchQuery]         = useState('')
+  const [suggestions, setSuggestions]         = useState([])
+  const [activeIndex, setActiveIndex]         = useState(-1)
 
   const dropTimerRef = useRef(null)
   const searchRef    = useRef(null)
+  const searchContainerRef = useRef(null)
   const navigate     = useNavigate()
 
   /* Scroll listener */
@@ -209,39 +217,122 @@ export default function Header() {
   /* Esc closes search */
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'Escape') { setSearchOpen(false); setSearchQuery('') }
+      if (e.key === 'Escape') { 
+        setSearchOpen(false)
+        setSearchQuery('')
+        setSuggestions([])
+        setActiveIndex(-1)
+      }
     }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
   }, [])
+
+  /* Click outside to close suggestions */
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target)) {
+        setSuggestions([])
+        setActiveIndex(-1)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  /* Filter suggestions when query changes */
+  useEffect(() => {
+    if (!searchQuery.trim()) {
+      setSuggestions([])
+      setActiveIndex(-1)
+      return
+    }
+
+    const query = searchQuery.toLowerCase().trim()
+    const filtered = ALL_SEARCHABLE.filter(item => {
+      const searchStr = `${item.label} ${item.desc} ${item.keywords || ''}`.toLowerCase()
+      return searchStr.includes(query)
+    }).slice(0, 8) // Max 8 suggestions
+    setSuggestions(filtered)
+    setActiveIndex(-1)
+  }, [searchQuery])
 
   /* Dropdown helpers */
   const openDrop  = (key) => { clearTimeout(dropTimerRef.current); setDropOpen(key) }
   const closeDrop = useCallback(() => setDropOpen(null), [])
   const delayClose = () => { dropTimerRef.current = setTimeout(closeDrop, 180) }
 
-  /* Search submit */
+  /* Search handlers */
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-    if (searchQuery.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
+    const query = searchQuery.trim()
+    if (query) {
+      navigate(`/search?q=${encodeURIComponent(query)}`)
       setSearchOpen(false)
       setSearchQuery('')
+      setSuggestions([])
+      setActiveIndex(-1)
+    }
+  }
+
+  const handleSuggestionClick = (item) => {
+    navigate(item.path)
+    setSearchOpen(false)
+    setSearchQuery('')
+    setSuggestions([])
+    setActiveIndex(-1)
+  }
+
+  const handleKeyDown = (e) => {
+    if (!suggestions.length) return
+
+    // Arrow down
+    if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      setActiveIndex(prev => (prev < suggestions.length - 1 ? prev + 1 : 0))
+    }
+    // Arrow up
+    else if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      setActiveIndex(prev => (prev > 0 ? prev - 1 : suggestions.length - 1))
+    }
+    // Enter
+    else if (e.key === 'Enter') {
+      e.preventDefault()
+      if (activeIndex >= 0 && suggestions[activeIndex]) {
+        handleSuggestionClick(suggestions[activeIndex])
+      } else {
+        handleSearchSubmit(e)
+      }
+    }
+  }
+
+  const getTypeLabel = (type) => {
+    switch(type) {
+      case 'service': return 'Service'
+      case 'career': return 'Career'
+      case 'page': return 'Page'
+      default: return ''
+    }
+  }
+
+  const getTypeColor = (type) => {
+    switch(type) {
+      case 'service': return '#1a55d4'
+      case 'career': return '#059669'
+      case 'page': return '#7c3aed'
+      default: return '#64748b'
     }
   }
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
-
-
-      {/* ── Main nav row ── */}
       <div className={styles.inner}>
         <Link to="/" className={styles.logoLink}>
           <img src={logo} alt="Intech Zone" className={styles.logoImg} />
         </Link>
 
         <nav className={styles.desktopNav}>
-          {/* Static links */}
           {NAV_LINKS.map(({ label, path }) => (
             <NavLink
               key={label}
@@ -254,7 +345,6 @@ export default function Header() {
             </NavLink>
           ))}
 
-          {/* Services mega dropdown */}
           <div
             className={styles.dropWrap}
             onMouseEnter={() => openDrop('services')}
@@ -285,7 +375,6 @@ export default function Header() {
             )}
           </div>
 
-          {/* Careers mega dropdown */}
           <div
             className={styles.dropWrap}
             onMouseEnter={() => openDrop('careers')}
@@ -316,22 +405,19 @@ export default function Header() {
             )}
           </div>
 
-          {/* Search toggle */}
           <button
             className={`${styles.searchIconBtn} ${searchOpen ? styles.searchIconBtnActive : ''}`}
-            onClick={() => { setSearchOpen(v => !v); setSearchQuery(''); setDropOpen(null) }}
+            onClick={() => { setSearchOpen(v => !v); setSearchQuery(''); setSuggestions([]); setDropOpen(null) }}
             aria-label="Toggle search"
           >
             {searchOpen ? <FiX size={17} /> : <FiSearch size={17} />}
           </button>
 
-          {/* CTA */}
           <Link to="/contact" className={styles.ctaBtn}>
             Get Quote <FiArrowRight size={14} />
           </Link>
         </nav>
 
-        {/* Hamburger */}
         <button
           className={styles.hamburger}
           onClick={() => setMenuOpen(v => !v)}
@@ -341,8 +427,8 @@ export default function Header() {
         </button>
       </div>
 
-      {/* ── Slide-down search bar ── */}
-      <div className={`${styles.searchBar} ${searchOpen ? styles.searchBarOpen : ''}`}>
+      {/* ── Slide-down search bar with autosuggest ── */}
+      <div className={`${styles.searchBar} ${searchOpen ? styles.searchBarOpen : ''}`} ref={searchContainerRef}>
         <form className={styles.searchForm} onSubmit={handleSearchSubmit}>
           <FiSearch size={17} className={styles.searchFormIcon} />
           <input
@@ -350,26 +436,60 @@ export default function Header() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
             placeholder="Search services, careers, solutions…"
             className={styles.searchInput}
+            autoComplete="off"
           />
           {searchQuery && (
             <button
               type="button"
               className={styles.searchClear}
-              onClick={() => setSearchQuery('')}
+              onClick={() => { setSearchQuery(''); setSuggestions([]) }}
             >
               <FiX size={14} />
             </button>
           )}
           <button type="submit" className={styles.searchSubmit}>Search</button>
         </form>
+
+        {/* ── Autosuggest dropdown ── */}
+        {suggestions.length > 0 && (
+          <div className={styles.suggestionsDropdown}>
+            {suggestions.map((item, index) => (
+              <button
+                key={`${item.type}-${item.label}`}
+                className={`${styles.suggestionItem} ${index === activeIndex ? styles.suggestionActive : ''}`}
+                onClick={() => handleSuggestionClick(item)}
+                onMouseEnter={() => setActiveIndex(index)}
+              >
+                {item.icon && (
+                  <div className={styles.suggestionIcon}>
+                    <item.icon size={16} />
+                  </div>
+                )}
+                <div className={styles.suggestionContent}>
+                  <span className={styles.suggestionLabel}>{item.label}</span>
+                  <span className={styles.suggestionDesc}>{item.desc}</span>
+                </div>
+                <div className={styles.suggestionRight}>
+                  <span 
+                    className={styles.suggestionType}
+                    style={{ color: getTypeColor(item.type), background: `${getTypeColor(item.type)}15` }}
+                  >
+                    {getTypeLabel(item.type)}
+                  </span>
+                  <FiArrowRight size={12} className={styles.suggestionArrow} />
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* ── Mobile menu ── */}
       {menuOpen && (
         <div className={styles.mobileMenu}>
-          {/* Mobile search */}
           <form className={styles.mobileSearchForm} onSubmit={handleSearchSubmit}>
             <FiSearch size={14} className={styles.mobileSearchIcon} />
             <input
@@ -381,7 +501,6 @@ export default function Header() {
             />
           </form>
 
-          {/* Static links */}
           {NAV_LINKS.map(({ label, path }) => (
             <NavLink
               key={label}
@@ -395,7 +514,6 @@ export default function Header() {
             </NavLink>
           ))}
 
-          {/* Services accordion */}
           <button
             className={styles.mobileAccordion}
             onClick={() => setMobileServicesOpen(v => !v)}
@@ -428,7 +546,6 @@ export default function Header() {
             </div>
           )}
 
-          {/* Careers accordion */}
           <button
             className={styles.mobileAccordion}
             onClick={() => setMobileCareersOpen(v => !v)}
@@ -470,7 +587,6 @@ export default function Header() {
           </Link>
         </div>
       )}
-
     </header>
   )
 }
