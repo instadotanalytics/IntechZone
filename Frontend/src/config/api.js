@@ -1,7 +1,7 @@
 // config/api.js
 const API_CONFIG = {
   // Base URLs
-  BASE_URL: 'http://localhost:5000',
+  BASE_URL: 'https://intechzone-backend.onrender.com',
   
   // Timeout settings
   TIMEOUT: 30000,
