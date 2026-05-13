@@ -16,7 +16,7 @@ import adminServiceRoutes from './routes/adminServiceRoutes.js';
 import internshipRoutes from './routes/internshipRoutes.js';
 import partTimeRoutes from './routes/partTimeRoutes.js';
 
-// Get __dirname equivalent in ES modules
+// __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -28,20 +28,25 @@ connectDB();
 
 const app = express();
 
-// Body parser
+// ✅ STEP 1: CORS — SABSE PEHLE (before everything)
+app.use(cors({
+  origin: [
+    'https://intechzone.onrender.com',
+    'http://localhost:5173',
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+// ✅ STEP 2: Handle preflight OPTIONS requests globally
+app.options('*', cors());
+
+// ✅ STEP 3: Body parser — CORS ke baad
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Enable CORS (Fixed - added all ports)
-app.use(cors({
-  origin: ['https://intechzone.onrender.com'],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
-
-
-// Mount routes
+// ✅ Mount routes
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/contact', contactRoutes);
@@ -52,16 +57,14 @@ app.use('/api/fulltime-job', fullTimeJobRoutes);
 app.use('/api/internship', internshipRoutes);
 app.use('/api/part-time', partTimeRoutes);
 
-
-// Create default admin if not exists (Fixed - with password hashing)
+// ✅ Create default admin if not exists
 const createDefaultAdmin = async () => {
   try {
     const adminExists = await Admin.findOne({ email: process.env.ADMIN_EMAIL });
     if (!adminExists) {
-      // Manually hash password
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD, salt);
-      
+
       const admin = new Admin({
         email: process.env.ADMIN_EMAIL,
         password: hashedPassword,
@@ -80,10 +83,9 @@ const createDefaultAdmin = async () => {
   }
 };
 
-// Only create admin, no dummy projects or visitors
 createDefaultAdmin();
 
-// Health check route
+// ✅ Health check route
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     success: true,
@@ -92,21 +94,21 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Debug route to check all registered routes
+// ✅ Debug route
 app.get('/api/debug-routes', (req, res) => {
   const routes = [];
   app._router.stack.forEach(middleware => {
     if (middleware.route) {
       routes.push({
         path: middleware.route.path,
-        methods: Object.keys(middleware.route.methods)
+        methods: Object.keys(middleware.route.methods),
       });
     } else if (middleware.name === 'router') {
       middleware.handle.stack.forEach(handler => {
         if (handler.route) {
           routes.push({
             path: handler.route.path,
-            methods: Object.keys(handler.route.methods)
+            methods: Object.keys(handler.route.methods),
           });
         }
       });
@@ -115,24 +117,24 @@ app.get('/api/debug-routes', (req, res) => {
   res.json({ routes });
 });
 
-// Error handler for Multer errors
+// ✅ Multer error handler
 app.use((err, req, res, next) => {
   if (err.name === 'MulterError') {
     if (err.code === 'LIMIT_FILE_SIZE') {
       return res.status(400).json({
         success: false,
-        message: 'File size exceeds 5MB limit. Please upload a smaller file.'
+        message: 'File size exceeds 5MB limit. Please upload a smaller file.',
       });
     }
     return res.status(400).json({
       success: false,
-      message: `File upload error: ${err.message}`
+      message: `File upload error: ${err.message}`,
     });
   }
   next(err);
 });
 
-// General error handler
+// ✅ General error handler
 app.use((err, req, res, next) => {
   console.error('❌ Error:', err.stack);
   res.status(err.status || 500).json({
@@ -141,17 +143,18 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Handle 404 routes
+// ✅ 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({
     success: false,
-    message: `Route ${req.originalUrl} not found`
+    message: `Route ${req.originalUrl} not found`,
   });
 });
 
+// ✅ Start server
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log('═══════════════════════════════════════════');
   console.log('🚀 Server running on port', PORT);
   console.log('═══════════════════════════════════════════');
@@ -165,7 +168,7 @@ const server = app.listen(PORT, () => {
   console.log('═══════════════════════════════════════════');
 });
 
-// Handle unhandled promise rejections
-process.on('unhandledRejection', (err, promise) => {
-  console.log(`❌ Error: ${err.message}`);
+// ✅ Handle unhandled promise rejections
+process.on('unhandledRejection', (err) => {
+  console.log(`❌ Unhandled Rejection: ${err.message}`);
 });
