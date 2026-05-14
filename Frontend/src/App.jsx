@@ -50,6 +50,7 @@ import Internship from './Components/Career/JoinOurTeam/Internship'
 import Career from './Components/Career/Career'
 import PartTime from './Components/Career/JoinOurTeam/PartTime'
 import SearchResults from './Components/Header/SearchResults'
+import PortfolioHomepage from './Components/Portfolio/PortfolioHomepage'
 
 
 // Scroll to top component
@@ -101,6 +102,7 @@ const App = () => {
         {/* Public Routes with Layout */}
         <Route path="/" element={<Layout><Home /></Layout>} />
         <Route path="/contact" element={<Layout><MainContect /></Layout>} />
+        <Route path="/portfolio" element={<Layout><PortfolioHomepage/></Layout>} />
         <Route path="/fast-delivery" element={<Layout><FastDeliveryHero /></Layout>} />
         <Route path="/247-support" element={<Layout><Support24Into7 /></Layout>} />
         <Route path="/expert-team" element={<Layout><ExpertTeam /></Layout>} />
