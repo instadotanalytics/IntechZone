@@ -67,7 +67,7 @@ const HeroSection = () => {
             <div className={styles.container}>
                 <div className={styles.heroContent}>
                     <div className={styles.heroLeft}>
-                        <span className={styles.heroBadge}>🚀 Join the Future of Tech</span>
+                        <span className={styles.heroBadge}>Join the Future of Tech</span>
                         <h1>Build Your <span className={styles.gradient}>Dream Career</span> with Intech Zone</h1>
                         <p className={styles.heroDesc}>India's fastest-growing tech company is looking for talented individuals like you. Join us and be part of something extraordinary.</p>
 
