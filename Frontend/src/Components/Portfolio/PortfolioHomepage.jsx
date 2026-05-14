@@ -10,6 +10,7 @@ import {
   FiSearch, FiX, FiFilter, FiCheck, FiEye,
   FiCalendar, FiUsers, FiAward, FiClock
 } from 'react-icons/fi'
+import TestimonialSection from '../../Pages/Home/TestimonialSection'
 
 
 // Portfolio Data
@@ -576,6 +577,7 @@ const PortfolioHomepage = () => {
           </div>
         </div>
       )}
+      <TestimonialSection/>
 
       {/* ─── CTA SECTION ─── */}
       <section className={styles.ctaSection}>

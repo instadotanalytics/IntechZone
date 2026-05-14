@@ -164,7 +164,7 @@ export default function ExpertTeam() {
 
             <div className={styles.heroText}>
               <div className={styles.heroPill}>
-                ⭐ Meet The Experts &nbsp;|&nbsp; 50+ Specialists
+                 Meet The Experts &nbsp;|&nbsp; 50+ Specialists
               </div>
               <h1 className={styles.heroTitle}>
                 Industry Veterans<br />Who <em>Deliver Results</em>

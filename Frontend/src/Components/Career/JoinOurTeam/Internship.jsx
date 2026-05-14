@@ -114,7 +114,7 @@ const HeroSection = () => {
       <div className={styles.heroGrid}>
         <div>
           <div className={styles.heroBadge}>
-            🚀 Limited Slots — Batch Starting June 2025
+            Limited Slots — Batch Starting June 2025
           </div>
 
           <h1 className={styles.heroH1}>
