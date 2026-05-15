@@ -107,15 +107,9 @@ const SOCIALS = [
     { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' },
     { icon: FiInstagram, href: 'https://instagram.com', label: 'Instagram' },
     { icon: FiFacebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: FiYoutube, href: 'https://youtube.com', label: 'YouTube' },
+    
 ]
 
-const BADGES = [
-    { icon: FiShield, text: 'ISO 27001 Certified' },
-    { icon: FiCloud, text: 'AWS Partner' },
-    { icon: FiCode, text: '10+ Years Experience' },
-    { icon: FiCpu, text: '500+ Projects Delivered' },
-]
 
 /* ─────────────────────── COMPONENT ─────────────────────── */
 
@@ -229,15 +223,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* ── Trust Badges ── */}
-            <div className={styles.badges}>
-                {BADGES.map(({ icon: Icon, text }) => (
-                    <div key={text} className={styles.badge}>
-                        <Icon size={15} />
-                        <span>{text}</span>
-                    </div>
-                ))}
-            </div>
+          
 
             {/* ── Bottom Bar ── */}
             <div className={styles.bottom}>
@@ -248,8 +234,7 @@ export default function Footer() {
                     <Link to="/privacy-policy">Privacy Policy</Link>
                     <span className={styles.dot} />
                     <Link to="/terms-of-service">Terms of Service</Link>
-                    <span className={styles.dot} />
-                    <Link to="/sitemap">Sitemap</Link>
+                    
                 </div>
             </div>
 

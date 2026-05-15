@@ -44,6 +44,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
+    'https://intechzone.in',
     'https://intechzone.onrender.com'
   ],
   credentials: true

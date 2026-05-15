@@ -126,7 +126,7 @@ export default function ContactHeroSection() {
 
       for (let i = 0; i < 18; i++) {
         const x = (i * 137.5 + t * 8) % W
-        const y = (i * 89.3  + t * 5) % H
+        const y = (i * 89.3 + t * 5) % H
         ctx.beginPath()
         ctx.arc(x, y, 1.5, 0, Math.PI * 2)
         ctx.fillStyle = 'rgba(59,130,246,0.25)'
@@ -151,29 +151,29 @@ export default function ContactHeroSection() {
   }
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  setError('');
+    e.preventDefault();
+    setLoading(true);
+    setError('');
 
-  console.log('Submitting form data:', formData);
+    console.log('Submitting form data:', formData);
 
-  try {
-    const response = await ApiService.submitContactForm(formData);
-    console.log('Response:', response);
-    if (response.data.success) {
-      setSubmittedName(formData.name);
-      setShowSuccess(true);
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    try {
+      const response = await ApiService.submitContactForm(formData);
+      console.log('Response:', response);
+      if (response.data.success) {
+        setSubmittedName(formData.name);
+        setShowSuccess(true);
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      }
+    } catch (err) {
+      console.error('Full error object:', err);
+      console.error('Error response:', err.response);
+      console.error('Error message:', err.message);
+      setError(err.response?.data?.message || 'Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    console.error('Full error object:', err);
-    console.error('Error response:', err.response);
-    console.error('Error message:', err.message);
-    setError(err.response?.data?.message || 'Failed to send message. Please try again.');
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   const handleCloseSuccess = () => setShowSuccess(false)
 
@@ -209,21 +209,24 @@ export default function ContactHeroSection() {
               <span className={styles.contactIcon}><FiPhone size={16} /></span>
               <div>
                 <p className={styles.contactLabel}>Call Us</p>
-                <p className={styles.contactValue}>+91-98765-43210</p>
+                <p className={styles.contactValue}>+916232685820</p>
               </div>
             </a>
             <a href="mailto:info@intechzone.in" className={styles.contactItem}>
               <span className={styles.contactIcon}><FiMail size={16} /></span>
               <div>
                 <p className={styles.contactLabel}>Email Us</p>
-                <p className={styles.contactValue}>info@intechzone.in</p>
+                <p className={styles.contactValue}>info.intechzone@gmail.com</p>
               </div>
             </a>
             <div className={styles.contactItem}>
               <span className={styles.contactIcon}><FiMapPin size={16} /></span>
               <div>
                 <p className={styles.contactLabel}>Visit Us</p>
-                <p className={styles.contactValue}>Bhopal, Madhya Pradesh</p>
+                <p className={styles.contactValue}>IntechZone
+                  Business Center, Silicon Tower
+                  Dubai Silicon Oasis
+                  Dubai Silicon Oasis, UAE</p>
               </div>
             </div>
           </div>

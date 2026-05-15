@@ -77,9 +77,7 @@
   transition: filter 0.3s ease;
 }
 
-.logoImg:hover {
-  filter: brightness(0) invert(0.8);
-}
+
 
 .brandTagline {
   font-size: 14px;

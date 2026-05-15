@@ -51,6 +51,8 @@ import Career from './Components/Career/Career'
 import PartTime from './Components/Career/JoinOurTeam/PartTime'
 import SearchResults from './Components/Header/SearchResults'
 import PortfolioHomepage from './Components/Portfolio/PortfolioHomepage'
+import PrivacyPolicy from './Components/Footer/PrivacyPolicy'
+import TermsOfService from './Components/Footer/Termsofservice'
 
 
 // Scroll to top component
@@ -111,7 +113,8 @@ const App = () => {
         <Route path="/scalable-growth" element={<Layout><ScalableGrowth /></Layout>} />
         <Route path="/about" element={<Layout><About /></Layout>} />
         <Route path="/services" element={<Layout><ServicesPage /></Layout>} />
-       
+        <Route path="/privacy-policy" element={<Layout><PrivacyPolicy/></Layout>} />
+        <Route path="/terms-of-service" element={<Layout><TermsOfService/></Layout>} />
         {/* Development Services Routes */}
         <Route path="/services/web-development" element={<Layout><Webdevelopment /></Layout>} />
         <Route path="/services/app-development" element={<Layout><AppDevelopment /></Layout>} />
