@@ -489,109 +489,122 @@ const AdminDashboard = () => {
             )}
 
             {/* CONTACTS TAB */}
-            {activeTab === 'contacts' && (
-              <div className={styles.splitLayout}>
-                <div className={styles.listPanel}>
-                  <div className={styles.panelHeader}>
-                    <div>
-                      <h2>Messages</h2>
-                      <p>{fMsg.length} total messages</p>
-                    </div>
-                  </div>
-                  
-                  <div className={styles.searchBar}>
-                    <FiSearch size={16} className={styles.searchIcon} />
-                    <input 
-                      placeholder="Search messages..." 
-                      value={contactSearch} 
-                      onChange={e => setContactSearch(e.target.value)}
-                      className={styles.searchInput}
-                    />
-                    {contactSearch && <button className={styles.clearBtn} onClick={() => setContactSearch('')}><FiX size={14} /></button>}
-                  </div>
+           {/* CONTACTS TAB */}
+{activeTab === 'contacts' && (
+  <div className={styles.splitLayout}>
+    <div className={styles.listPanel}>
+      <div className={styles.panelHeader}>
+        <div>
+          <h2>Messages</h2>
+          <p>{fMsg.length} total messages</p>
+        </div>
+      </div>
+      
+      <div className={styles.searchBar}>
+        <FiSearch size={16} className={styles.searchIcon} />
+        <input 
+          placeholder="Search messages..." 
+          value={contactSearch} 
+          onChange={e => setContactSearch(e.target.value)}
+          className={styles.searchInput}
+        />
+        {contactSearch && <button className={styles.clearBtn} onClick={() => setContactSearch('')}><FiX size={14} /></button>}
+      </div>
 
-                  <div className={styles.filterRow}>
-                    {['all', 'new', 'read', 'replied'].map(f => (
-                      <button key={f} className={`${styles.filterChip} ${contactFilter === f ? styles.filterActive : ''}`}
-                        onClick={() => setContactFilter(f)}>
-                        {f.charAt(0).toUpperCase() + f.slice(1)}
-                        <span>{contactStats[f] || 0}</span>
-                      </button>
-                    ))}
-                  </div>
+      <div className={styles.filterRow}>
+        {['all', 'new', 'read', 'replied'].map(f => (
+          <button key={f} className={`${styles.filterChip} ${contactFilter === f ? styles.filterActive : ''}`}
+            onClick={() => setContactFilter(f)}>
+            {f.charAt(0).toUpperCase() + f.slice(1)}
+            <span>{contactStats[f] || 0}</span>
+          </button>
+        ))}
+      </div>
 
-                  <div className={styles.listScroll}>
-                    {fMsg.map(m => (
-                      <div key={m._id} className={`${styles.listItem} ${selectedMsg?._id === m._id ? styles.listActive : ''}`}
-                        onClick={() => setSelectedMsg(m)}>
-                        <div className={styles.liAvatar}>
-                          {m.name?.charAt(0)?.toUpperCase()}
-                        </div>
-                        <div className={styles.liBody}>
-                          <span className={styles.liName}>{m.name}</span>
-                          <span className={styles.liSub}>{m.email}</span>
-                          <span className={styles.liPreview}>{m.message?.substring(0, 50)}...</span>
-                        </div>
-                        <div className={styles.liRight}>
-                          <span className={getStatusClass(m.status, styles)}>{getStatusText(m.status)}</span>
-                          <span className={styles.liDate}>{fmtRelative(m.createdAt)}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+      <div className={styles.listScroll}>
+        {fMsg.map(m => (
+          <div key={m._id} className={`${styles.listItem} ${selectedMsg?._id === m._id ? styles.listActive : ''}`}
+            onClick={() => setSelectedMsg(m)}>
+            <div className={styles.liAvatar}>
+              {m.name?.charAt(0)?.toUpperCase()}
+            </div>
+            <div className={styles.liBody}>
+              <span className={styles.liName}>{m.name}</span>
+              <span className={styles.liSub}>{m.email}</span>
+              <span className={styles.liPreview}>{m.message?.substring(0, 50)}...</span>
+            </div>
+            <div className={styles.liRight}>
+              <span className={getStatusClass(m.status, styles)}>{getStatusText(m.status)}</span>
+              <span className={styles.liDate}>{fmtRelative(m.createdAt)}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
 
-                <div className={styles.detailPanel}>
-                  {selectedMsg ? (
-                    <>
-                      <div className={styles.detailHero}>
-                        <div className={styles.dhAvatar}>
-                          {selectedMsg.name?.charAt(0)?.toUpperCase()}
-                        </div>
-                        <div>
-                          <h3>{selectedMsg.name}</h3>
-                          <p>{selectedMsg.email}</p>
-                          <p className={styles.dhDate}>{fmtDate(selectedMsg.createdAt)} at {fmtTime(selectedMsg.createdAt)}</p>
-                        </div>
-                      </div>
+    <div className={styles.detailPanel}>
+      {selectedMsg ? (
+        <>
+          <div className={styles.detailHero}>
+            <div className={styles.dhAvatar}>
+              {selectedMsg.name?.charAt(0)?.toUpperCase()}
+            </div>
+            <div>
+              <h3>{selectedMsg.name}</h3>
+              <p>{selectedMsg.email}</p>
+              <p className={styles.dhDate}>{fmtDate(selectedMsg.createdAt)} at {fmtTime(selectedMsg.createdAt)}</p>
+            </div>
+          </div>
 
-                      <div className={styles.detailMsgBox}>
-                        <label>Message</label>
-                        <p>{selectedMsg.message}</p>
-                      </div>
+          <div className={styles.detailMsgBox}>
+            <label>Message</label>
+            <p>{selectedMsg.message}</p>
+          </div>
 
-                      <div className={styles.detailGrid}>
-                        <div className={styles.dField}>
-                          <label>Status</label>
-                          <select value={selectedMsg.status} 
-                            onChange={e => handleContactStatus(selectedMsg._id, e.target.value)}
-                            className={styles.statusSelect}>
-                            <option value="new">New</option>
-                            <option value="read">Read</option>
-                            <option value="replied">Replied</option>
-                          </select>
-                        </div>
-                      </div>
+          <div className={styles.detailGrid}>
+            <div className={styles.dField}>
+              <label>Status</label>
+              <select value={selectedMsg.status} 
+                onChange={e => handleContactStatus(selectedMsg._id, e.target.value)}
+                className={styles.statusSelect}>
+                <option value="new">New</option>
+                <option value="read">Read</option>
+                <option value="replied">Replied</option>
+              </select>
+            </div>
 
-                      <div className={styles.detailActions}>
-                        <a href={`mailto:${selectedMsg.email}`} className={styles.replyBtn}>
-                          <FiSend size={16} /> Reply via Email
-                        </a>
-                        <button onClick={() => handleDeleteMsg(selectedMsg._id)} className={styles.deleteBtn}>
-                          <FiTrash2 size={16} /> Delete
-                        </button>
-                      </div>
-                    </>
-                  ) : (
-                    <div className={styles.emptyDetail}>
-                      <FiInbox size={48} />
-                      <p>Select a message</p>
-                      <span>Click on a message to view details</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
+            {/* ✅ Phone field added */}
+            <div className={styles.dField}>
+              <label>Phone</label>
+              <p>{selectedMsg.phone || '—'}</p>
+            </div>
+
+            {/* ✅ Service field added */}
+            <div className={styles.dField}>
+              <label>Service</label>
+              <p>{selectedMsg.service || 'General Inquiry'}</p>
+            </div>
+          </div>
+
+          <div className={styles.detailActions}>
+            <a href={`mailto:${selectedMsg.email}`} className={styles.replyBtn}>
+              <FiSend size={16} /> Reply via Email
+            </a>
+            <button onClick={() => handleDeleteMsg(selectedMsg._id)} className={styles.deleteBtn}>
+              <FiTrash2 size={16} /> Delete
+            </button>
+          </div>
+        </>
+      ) : (
+        <div className={styles.emptyDetail}>
+          <FiInbox size={48} />
+          <p>Select a message</p>
+          <span>Click on a message to view details</span>
+        </div>
+      )}
+    </div>
+  </div>
+)}
 
             {/* ENQUIRIES TAB */}
             {activeTab === 'enquiries' && (
