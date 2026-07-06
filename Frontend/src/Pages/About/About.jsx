@@ -345,9 +345,9 @@ const About = () => {
         <div className={styles.container}>
           <div className={styles.contactGrid}>
             {[
-              { icon: <FiMapPin  size={20} />, title: "Visit Us",       lines: ["123 Tech Park, Bangalore", "Karnataka, India — 560001"] },
-              { icon: <FiPhone   size={20} />, title: "Call Us",        lines: ["+91 80 1234 5678", "+91 98765 43210"] },
-              { icon: <FiMail    size={20} />, title: "Email Us",       lines: ["hello@intechzone.com", "support@intechzone.com"] },
+              { icon: <FiMapPin  size={20} />, title: "Visit Us",       lines: ["6 Headingley Mount,headingley,leeds,LS63EL"] },
+              { icon: <FiPhone   size={20} />, title: "Call Us",        lines: ["+44 7713 675964"] },
+              { icon: <FiMail    size={20} />, title: "Email Us",       lines: ["info.intechzone@gmail.com"] },
               { icon: <FiClock   size={20} />, title: "Working Hours",  lines: ["Mon–Fri: 9 AM – 6 PM", "Sat: 10 AM – 2 PM"] },
             ].map((c, i) => (
               <div key={i} className={styles.contactCard}>

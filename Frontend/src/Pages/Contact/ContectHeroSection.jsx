@@ -223,10 +223,7 @@ export default function ContactHeroSection() {
               <span className={styles.contactIcon}><FiMapPin size={16} /></span>
               <div>
                 <p className={styles.contactLabel}>Visit Us</p>
-                <p className={styles.contactValue}>IntechZone
-                  Business Center, Silicon Tower
-                  Dubai Silicon Oasis
-                  Dubai Silicon Oasis, UAE</p>
+                <p className={styles.contactValue}>6 Headingley Mount,headingley,Leeds,LS63EL</p>
               </div>
             </div>
           </div>

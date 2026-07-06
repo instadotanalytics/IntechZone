@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
 /* ── BASE ── */
 .page {
   background: #ffffff;
-  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  font-family:
+    "Plus Jakarta Sans",
+    -apple-system,
+    sans-serif;
   color: #0f172a;
   overflow-x: hidden;
 }
@@ -24,8 +27,8 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 5px 14px;
-  background: rgba(59,130,246,0.1);
-  border: 1px solid rgba(59,130,246,0.25);
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.25);
   border-radius: 99px;
   color: #2563eb;
   margin-bottom: 12px;
@@ -40,7 +43,9 @@
   margin-bottom: 10px;
 }
 
-.blue { color: #2563eb; }
+.blue {
+  color: #2563eb;
+}
 
 .sectionDesc {
   font-size: 14px;
@@ -79,9 +84,14 @@
   flex-shrink: 0;
 }
 
-.trustItem:last-child { border-right: none; }
+.trustItem:last-child {
+  border-right: none;
+}
 
-.trustIcon { color: #2563eb; flex-shrink: 0; }
+.trustIcon {
+  color: #2563eb;
+  flex-shrink: 0;
+}
 
 .trustVal {
   font-size: 20px;
@@ -109,17 +119,20 @@
 }
 
 .officeCard {
-  background: #f8fafc;
+  background: #eff6ff;
   border: 1px solid #e2e8f0;
   border-radius: 20px;
   padding: 28px 24px;
   position: relative;
-  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s,
+    border-color 0.25s;
 }
 
 .officeCard:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(37,99,235,0.09);
+  box-shadow: blue;
   border-color: #93c5fd;
 }
 
@@ -139,6 +152,34 @@
   font-weight: 700;
   padding: 3px 10px;
   background: #2563eb;
+  color: #fff;
+  border-radius: 99px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Coming Soon card + badge */
+.officeComingSoon {
+  background:#eff6ff;
+  border-color:#93c5fd;
+}
+
+.officeComingSoon:hover {
+  border-color:#93c5fd;
+  box-shadow: blue;
+}
+
+.comingSoonBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  background: #f59e0b;
   color: #fff;
   border-radius: 99px;
   letter-spacing: 0.04em;
@@ -184,7 +225,9 @@
   margin-bottom: 10px;
 }
 
-.officeRow:last-child { margin-bottom: 0; }
+.officeRow:last-child {
+  margin-bottom: 0;
+}
 
 .officeRowIcon {
   color: #2563eb;
@@ -198,7 +241,9 @@
   font-weight: 500;
   transition: opacity 0.2s;
 }
-.officeLink:hover { opacity: 0.7; }
+.officeLink:hover {
+  opacity: 0.7;
+}
 
 /* ── MAP + SERVICES ── */
 .mapSection {
@@ -281,13 +326,16 @@
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   text-decoration: none;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .serviceItem:hover {
   border-color: #93c5fd;
   transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(37,99,235,0.08);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
 }
 
 .serviceItemIcon {
@@ -311,7 +359,9 @@
 
 .serviceItemArrow {
   color: #94a3b8;
-  transition: color 0.2s, transform 0.2s;
+  transition:
+    color 0.2s,
+    transform 0.2s;
 }
 
 .serviceItem:hover .serviceItemArrow {
@@ -335,7 +385,9 @@
   transition: background 0.2s;
 }
 
-.allServicesBtn:hover { background: #1d4ed8; }
+.allServicesBtn:hover {
+  background: #1d4ed8;
+}
 
 /* ── FAQ ── */
 .faq {
@@ -363,13 +415,15 @@
   z-index: 1;
 }
 
-.faqLeft { padding-top: 8px; }
+.faqLeft {
+  padding-top: 8px;
+}
 
 .faqContactBox {
   display: flex;
   align-items: center;
   gap: 14px;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid #dbeafe;
   border-radius: 14px;
   padding: 16px 18px;
@@ -402,7 +456,9 @@
   transition: background 0.2s;
 }
 
-.faqContactBtn:hover { background: #1d4ed8; }
+.faqContactBtn:hover {
+  background: #1d4ed8;
+}
 
 .socialRow {
   display: flex;
@@ -413,7 +469,7 @@
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid #dbeafe;
   color: #2563eb;
   display: flex;
@@ -421,7 +477,9 @@
   justify-content: center;
   text-decoration: none;
   backdrop-filter: blur(6px);
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 .socialIcon:hover {
@@ -438,7 +496,7 @@
 }
 
 .faqItem {
-  background: rgba(255,255,255,0.88);
+  background: rgba(255, 255, 255, 0.88);
   border: 1px solid #dbeafe;
   border-radius: 14px;
   overflow: hidden;
@@ -446,8 +504,12 @@
   transition: border-color 0.2s;
 }
 
-.faqItem:hover { border-color: #93c5fd; }
-.faqOpen { border-color: #93c5fd; }
+.faqItem:hover {
+  border-color: #93c5fd;
+}
+.faqOpen {
+  border-color: #93c5fd;
+}
 
 .faqQ {
   width: 100%;
@@ -467,7 +529,9 @@
   transition: color 0.2s;
 }
 
-.faqOpen .faqQ { color: #2563eb; }
+.faqOpen .faqQ {
+  color: #2563eb;
+}
 
 .faqChevron {
   flex-shrink: 0;
@@ -475,7 +539,10 @@
   transition: transform 0.25s;
 }
 
-.faqChevronOpen { transform: rotate(180deg); color: #2563eb; }
+.faqChevronOpen {
+  transform: rotate(180deg);
+  color: #2563eb;
+}
 
 .faqA {
   padding: 0 20px 16px;
@@ -503,7 +570,10 @@
   flex-wrap: wrap;
 }
 
-.ctaLeft { flex: 1; min-width: 260px; }
+.ctaLeft {
+  flex: 1;
+  min-width: 260px;
+}
 
 .ctaTitle {
   font-size: 26px;
@@ -514,11 +584,13 @@
   letter-spacing: -0.02em;
 }
 
-.ctaAccent { color: #bfdbfe; }
+.ctaAccent {
+  color: #bfdbfe;
+}
 
 .ctaDesc {
   font-size: 14px;
-  color: rgba(255,255,255,0.72);
+  color: rgba(255, 255, 255, 0.72);
   line-height: 1.65;
   margin-bottom: 16px;
 }
@@ -534,7 +606,7 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
 }
 
@@ -557,10 +629,15 @@
   font-weight: 800;
   text-decoration: none;
   white-space: nowrap;
-  transition: opacity 0.2s, transform 0.2s;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
 
-.ctaBtnPrimary:hover { opacity: 0.93; transform: translateY(-2px); }
+.ctaBtnPrimary:hover {
+  opacity: 0.93;
+  transform: translateY(-2px);
+}
 
 .ctaBtnOutline {
   display: inline-flex;
@@ -570,7 +647,7 @@
   padding: 13px 28px;
   background: transparent;
   color: #fff;
-  border: 1.5px solid rgba(255,255,255,0.45);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
   border-radius: 12px;
   font-size: 14px;
   font-weight: 700;
@@ -578,30 +655,78 @@
   transition: background 0.2s;
 }
 
-.ctaBtnOutline:hover { background: rgba(255,255,255,0.12); }
+.ctaBtnOutline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-  .officeGrid { grid-template-columns: 1fr 1fr; }
-  .mapSplit   { grid-template-columns: 1fr; }
-  .faqSplit   { grid-template-columns: 1fr; }
-  .faqLeft    { max-width: 480px; }
+  .officeGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .mapSplit {
+    grid-template-columns: 1fr;
+  }
+  .faqSplit {
+    grid-template-columns: 1fr;
+  }
+  .faqLeft {
+    max-width: 480px;
+  }
 }
 
 @media (max-width: 768px) {
-  .officeGrid { grid-template-columns: 1fr; }
-  .ctaBox     { flex-direction: column; padding: 32px 24px; }
-  .ctaRight   { width: 100%; flex-direction: row; flex-wrap: wrap; }
-  .ctaBtnPrimary, .ctaBtnOutline { flex: 1; justify-content: center; min-width: 160px; }
-  .trustItem  { padding: 10px 18px; }
-  .sectionTitle { font-size: 24px; }
+  .officeGrid {
+    grid-template-columns: 1fr;
+  }
+  .ctaBox {
+    flex-direction: column;
+    padding: 32px 24px;
+  }
+  .ctaRight {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .ctaBtnPrimary,
+  .ctaBtnOutline {
+    flex: 1;
+    justify-content: center;
+    min-width: 160px;
+  }
+  .trustItem {
+    padding: 10px 18px;
+  }
+  .sectionTitle {
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 480px) {
-  .container { padding: 0 16px; }
-  .offices, .mapSection, .faq, .cta { padding-left: 0; padding-right: 0; }
-  .mapIframe { height: 260px; }
-  .trustGrid  { flex-direction: column; align-items: center; }
-  .trustItem  { border-right: none; border-bottom: 1px solid #dbeafe; width: 100%; justify-content: center; }
-  .trustItem:last-child { border-bottom: none; }
+  .container {
+    padding: 0 16px;
+  }
+  .offices,
+  .mapSection,
+  .faq,
+  .cta {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .mapIframe {
+    height: 260px;
+  }
+  .trustGrid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .trustItem {
+    border-right: none;
+    border-bottom: 1px solid #dbeafe;
+    width: 100%;
+    justify-content: center;
+  }
+  .trustItem:last-child {
+    border-bottom: none;
+  }
 }

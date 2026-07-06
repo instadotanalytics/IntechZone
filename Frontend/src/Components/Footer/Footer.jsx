@@ -138,11 +138,11 @@ export default function Footer() {
                     <ul className={styles.contactList}>
                         <li>
                             <FiMail size={14} />
-                            <a href="mailto:hello@intechzone.in">hello@intechzone.in</a>
+                            <a href="mailto:hello@intechzone.in">info.intechzone@gmail.com</a>
                         </li>
                         <li>
                             <FiPhone size={14} />
-                            <a href="tel:+911234567890">+91 12345 67890</a>
+                            <a href="tel:+911234567890">+91 6232685820</a>
                         </li>
                         <li>
                             <FiMapPin size={14} />

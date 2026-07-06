@@ -214,7 +214,7 @@ const AllServicesForm = () => {
             <div className={styles.leftFooter}>
               <div className={styles.contactInfo}>
                 <div><FiMail size={13} /> info@intechzone.in</div>
-                <div><FiPhone size={13} /> +91-98765-43210</div>
+                <div><FiPhone size={13} /> +44 7713 675964</div>
               </div>
             </div>
           </div>
