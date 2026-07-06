@@ -96,6 +96,7 @@ const WaveCanvas = () => {
 // ── Data ─────────────────────────────────────────────────────
 const OFFICES = [
   {
+
     city: "UK",
     country: "UK (HQ)",
     address: "6 Headingley Mount, headingley, Leeds, LS63EL",
@@ -124,6 +125,34 @@ const OFFICES = [
     email: "dubai@intechzone.in",
     hours: "Sun–Thu: 9 AM – 6 PM",
     icon: "🌍",
+
+    city: 'UK',
+    country: 'UK (HQ)',
+    address: '6 Headingley Mount, headingley, Leeds, LS63EL',
+    phone: '+44 7713 675964',
+    email: 'info.intechzone@gmail.com',
+    hours: 'Mon–Fri: 9 AM – 6 PM',
+    icon: '🏢',
+    primary: true,
+  },
+  {
+  city: 'Dubai',
+  country: 'United Arab Emirates',
+  address: 'Dubai Internet City\nAl Sufouh 2\nDubai, UAE',
+  phone: '+916232685820',
+  email: 'info.intechzone@gmail.com',
+  hours: 'Mon–Fri: 9 AM – 6 PM',
+  icon: '🏙️',
+  primary: false,
+},
+  {
+    city: 'Indore',
+    country: 'India',
+    address: 'P13-14, Metro Tower, Vijay Nagar, Indore (M.P.)',
+    phone: '+916232685820',
+    email: 'info.intechzone@gmail.com',
+    hours: 'Sun–Thu: 9 AM – 6 PM',
+    icon: '🌍',
     primary: false,
   },
 ];
