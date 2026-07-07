@@ -146,7 +146,7 @@ export default function Footer() {
                         </li>
                         <li>
                             <FiMapPin size={14} />
-                            <span>Bhopal, Madhya Pradesh, India</span>
+                            <span>6 Headingley Mount, headingley, Leeds, LS63EL,UK</span>
                         </li>
                     </ul>
 

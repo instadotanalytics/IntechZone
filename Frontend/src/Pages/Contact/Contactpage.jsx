@@ -99,9 +99,9 @@ const OFFICES = [
 
     city: "UK",
     country: "UK (HQ)",
-    address: "6 Headingley Mount, headingley, Leeds, LS63EL",
+    address: "6 Headingley Mount, headingley, Leeds, LS63EL,UK",
     phone: "+916232685820",
-    email: "bhopal@intechzone.in",
+    email: "info.intechzone@gmail.com",
     hours: "Mon–Fri: 9 AM – 6 PM",
     icon: "🏢",
     primary: true,
@@ -109,9 +109,9 @@ const OFFICES = [
   {
     city: "Dubai",
     country: "United Arab Emirates",
-    address: "Dubai Internet City\nAl Sufouh 2\nDubai, UAE",
+    address:  "6 Headingley Mount, headingley, Leeds, LS63EL,UK",
     phone: "+916232685820",
-    email: "dubai@intechzone.in",
+    email: "info.intechzone@gmail.com",
     hours: "Mon–Fri: 9 AM – 6 PM",
     icon: "🏙️",
     primary: false,
@@ -120,7 +120,7 @@ const OFFICES = [
   {
     city: 'Indore',
     country: 'India',
-    address: 'P13-14, Metro Tower, Vijay Nagar, Indore (M.P.)',
+    address: "6 Headingley Mount, headingley, Leeds, LS63EL,UK",
     phone: '+916232685820',
     email: 'info.intechzone@gmail.com',
     hours: 'Sun–Thu: 9 AM – 6 PM',
